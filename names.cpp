@@ -1,4 +1,8 @@
+#include <iostream>
+#include <vector>
+#include <tuple>
 #include "era.hpp"
+using namespace std;
 
 const time_t now = time(nullptr);
 const tm *lt = localtime(&now);

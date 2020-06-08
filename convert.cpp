@@ -1,5 +1,9 @@
+#include <iostream>
+#include <vector>
 #include "era.hpp"
-void JCtoAC(string eraName, int eraNum)
+using namespace std;
+
+void JCtoAC(string eraName, unsigned int eraNum)
 {
   insertNames();
   int sumNum = 0;
