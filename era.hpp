@@ -1,7 +1,7 @@
 #include <string>
 void insertNames();
-void JCtoAC(std::string eraName, unsigned int eraNum);
-void ACtoJC(int inputNum);
+int JCtoAC(const string &eraName, int eraNum);
+string ACtoJC(int inputNum);
 
 extern const int startYear;
 extern const int thisYear;

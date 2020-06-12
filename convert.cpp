@@ -10,7 +10,7 @@ int JCtoAC(string eraName, unsigned int eraNum)
   int sumNum = 0;
   for (int i = 0; i < names.size(); i++)
   {
-    string key = get<0>(names[i]);
+    const string &key = get<0>(names[i]);
     int value = get<1>(names[i]);
     if (eraName == key)
     {
