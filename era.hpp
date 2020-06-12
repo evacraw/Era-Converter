@@ -1,9 +1,10 @@
 #include <string>
-void insertNames();
-int JCtoAC(const string &eraName, int eraNum);
-string ACtoJC(int inputNum);
+
+int JCtoAC(const std::string, unsigned int);
+std::string ACtoJC(int);
 
 extern const int startYear;
 extern const int thisYear;
 
-extern std::vector<std::tuple<std::string, int>> names;
+extern const std::vector<std::string> erasNames;
+extern const std::vector<int> erasYears;

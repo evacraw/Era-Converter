@@ -4,7 +4,7 @@
 
 ```
 $ git clone git@github.com:kota-yata/Era-Converter.git
-$ g++ -std=c++11 -o a.out era.cpp names.cpp convert.cpp
+$ g++ -std=c++11 -o a.out main.cpp names.cpp convert.cpp
 $ ./a.out
 ```
 

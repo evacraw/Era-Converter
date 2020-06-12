@@ -4,14 +4,13 @@
 #include "era.hpp"
 using namespace std;
 
-int JCtoAC(string eraName, unsigned int eraNum)
+int JCtoAC(const string eraName, unsigned int eraNum)
 {
-  insertNames();
   int sumNum = 0;
-  for (int i = 0; i < names.size(); i++)
+  for (int i = 0; i < erasNames.size(); i++)
   {
-    const string &key = get<0>(names[i]);
-    int value = get<1>(names[i]);
+    const string &key = erasNames[i];
+    int value = erasYears[i];
     if (eraName == key)
     {
       if (eraNum > value || eraNum <= 0)
@@ -42,11 +41,10 @@ string ACtoJC(int inputNum)
   else
   {
     int subNum = 0;
-    insertNames();
-    for (int i = 0; i < names.size(); i++)
+    for (int i = 0; i < erasNames.size(); i++)
     {
-      string key = get<0>(names[i]);
-      int value = get<1>(names[i]);
+      string key = erasNames[i];
+      int value = erasYears[i];
       int checkNum = inputNum - startYear - value - subNum;
       if (checkNum < 0)
       {
