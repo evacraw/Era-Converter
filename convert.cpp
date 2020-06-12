@@ -1,9 +1,10 @@
 #include <iostream>
+#include <sstream>
 #include <vector>
 #include "era.hpp"
 using namespace std;
 
-void JCtoAC(string eraName, unsigned int eraNum)
+int JCtoAC(string eraName, unsigned int eraNum)
 {
   insertNames();
   int sumNum = 0;
@@ -19,7 +20,8 @@ void JCtoAC(string eraName, unsigned int eraNum)
       }
       else
       {
-        cout << startYear + sumNum + eraNum << endl;
+        int result = startYear + sumNum + eraNum;
+        return result;
         break;
       }
     }
@@ -27,7 +29,7 @@ void JCtoAC(string eraName, unsigned int eraNum)
   }
 }
 
-void ACtoJC(int inputNum)
+string ACtoJC(int inputNum)
 {
   if (inputNum > thisYear)
   {
@@ -48,7 +50,10 @@ void ACtoJC(int inputNum)
       int checkNum = inputNum - startYear - value - subNum;
       if (checkNum < 0)
       {
-        cout << key << value + checkNum << endl;
+        ostringstream oss;
+        int num = value + checkNum;
+        oss << key << num;
+        return oss.str().c_str();
         break;
       }
       else
