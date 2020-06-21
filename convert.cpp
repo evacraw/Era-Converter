@@ -4,7 +4,8 @@
 #include "era.hpp"
 using namespace std;
 
-int JCtoAC(const string eraName, unsigned int eraNum)
+//"H31"と入力されたら2019と返す (和暦 => 西暦)
+string JCtoAC(const string eraName, unsigned int eraNum)
 {
   int sumNum = 0;
   for (int i = 0; i < erasNames.size(); i++)
@@ -15,49 +16,47 @@ int JCtoAC(const string eraName, unsigned int eraNum)
     {
       if (eraNum > value || eraNum <= 0)
       {
-        cout << "The year " << eraName << eraNum << " doesn't exist." << endl;
+        string noresult = "The year " + eraName + to_string(eraNum) + " doesn't exist.";
+        return noresult;
       }
-      else
-      {
-        int result = startYear + sumNum + eraNum;
-        return result;
-        break;
-      }
+      int result = startYear + sumNum + eraNum;
+      return to_string(result);
+      break;
     }
     sumNum += value - 1;
   }
 }
 
+//2019と入力されたら"H31"と文字列で返す (西暦 => 和暦)
 string ACtoJC(int inputNum)
 {
   if (inputNum > thisYear)
   {
-    cout << "The year " << inputNum << " is the future. It may not be Reiwa Era." << endl;
+    string future = "The year " + to_string(inputNum) + " is the future. It may not be Reiwa Era.";
+    return future;
   }
   else if (inputNum < startYear)
   {
-    cout << "Sorry, I don't know about before" << startYear << endl;
+    string before = "Sorry, I don't know about before" + to_string(startYear);
+    return before;
   }
-  else
+  int subNum = 0;
+  for (int i = 0; i < erasNames.size(); i++)
   {
-    int subNum = 0;
-    for (int i = 0; i < erasNames.size(); i++)
+    string key = erasNames[i];
+    int value = erasYears[i];
+    int checkNum = inputNum - startYear - value - subNum;
+    if (checkNum < 0)
     {
-      string key = erasNames[i];
-      int value = erasYears[i];
-      int checkNum = inputNum - startYear - value - subNum;
-      if (checkNum < 0)
-      {
-        ostringstream oss;
-        int num = value + checkNum;
-        oss << key << num;
-        return oss.str().c_str();
-        break;
-      }
-      else
-      {
-        subNum += value - 1;
-      }
+      ostringstream oss;
+      int num = value + checkNum;
+      oss << key << num;
+      return oss.str().c_str();
+      break;
+    }
+    else
+    {
+      subNum += value - 1;
     }
   }
 }

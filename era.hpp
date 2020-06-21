@@ -1,6 +1,6 @@
 #include <string>
 
-int JCtoAC(const std::string, unsigned int);
+std::string JCtoAC(const std::string, unsigned int);
 std::string ACtoJC(int);
 
 extern const int startYear;
