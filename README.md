@@ -1,4 +1,5 @@
 # Era-Converter
+C++に入門するための練習
 西暦和暦相互変換
 # Usage
 
