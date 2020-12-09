@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 #include "era.hpp"
 
 int main()
