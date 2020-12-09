@@ -1,4 +1,6 @@
 #include <string>
+#include <vector>
+#include <unordered_map>
 
 std::string JCtoAC(const std::string, unsigned int);
 std::string ACtoJC(int);
@@ -6,5 +8,4 @@ std::string ACtoJC(int);
 extern const int startYear;
 extern const int thisYear;
 
-extern const std::vector<std::string> eraNames;
-extern const std::vector<int> erasYears;
+extern const std::unordered_map<std::string, std::vector<int>> eras;
