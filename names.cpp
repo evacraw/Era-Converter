@@ -10,7 +10,7 @@ const int startYear = 1615 - 1; //元年なので1を引く
 const int thisYear = 2000 + lt->tm_year;
 const int reiwa = (thisYear - 100) - 2019 + 1; //元号のスタートは0年ではないため1を足す
 
-const vector<string> erasNames = {
+const vector<string> eraNames = {
     "Genna", "Kanei", "Shouhou", "Keiwan", "Jouou", "Meireki", "Manji", "Kanbun", "Enpou", "Tenna", "Joukyou", "Genroku", "Houei",
     "Syoutoku", "Kyouhou", "Genbun", "Kanpou", "Enkyou", "Kanen", "Houreki", "Meiwa", "Anei", "Tenmei", "Kansei", "Kyouwa", "Bunka",
     "Bunsei", "Tenpou", "Kouka", "Kaei", "Ansei", "Manei", "Bunkyuu", "Genji", "Keiou", "Meiji", "Taisyou", "Syouwa", "Heisei", "Reiwa"};

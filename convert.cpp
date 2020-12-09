@@ -8,9 +8,9 @@ using namespace std;
 string JCtoAC(const string eraName, unsigned int eraNum)
 {
   int sumNum = 0;
-  for (int i = 0; i < erasNames.size(); i++)
+  for (int i = 0; i < eraNames.size(); i++)
   {
-    const string &key = erasNames[i];
+    const string &key = eraNames[i];
     int value = erasYears[i];
     if (eraName == key)
     {
@@ -41,9 +41,9 @@ string ACtoJC(int inputNum)
     return before;
   }
   int subNum = 0;
-  for (int i = 0; i < erasNames.size(); i++)
+  for (int i = 0; i < eraNames.size(); i++)
   {
-    string key = erasNames[i];
+    string key = eraNames[i];
     int value = erasYears[i];
     int checkNum = inputNum - startYear - value - subNum;
     if (checkNum < 0)
