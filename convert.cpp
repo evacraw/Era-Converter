@@ -19,6 +19,13 @@ string JCtoAC(string eraName, unsigned int eraNum) {
 // 2019と入力されたら"Heisei 31"と文字列で返す (西暦 => 和暦)
 // 未来の年号対応と最後の年対応明日やる
 string ACtoJC(int inputNum) {
+  if (inputNum > thisYear){
+    vector<int> reiwaStartYearVector = eras.at("Reiwa");
+    int reiwaStartYear = reiwaStartYearVector[0];
+    int futureResultNum = inputNum - reiwaStartYear;
+    string futureResult = "Reiwa" + to_string(futureResultNum);
+    return futureResult;
+  }
   if (inputNum < startYear) {
     string before = "Sorry, I don't know about before" + to_string(startYear);
     return before;
@@ -31,6 +38,8 @@ string ACtoJC(int inputNum) {
       ostringstream oss;
       oss << it.first << result;
       return oss.str().c_str();
+      break;
     }
   }
 }
+
