@@ -2,14 +2,14 @@
 #include <unordered_map>
 #include <vector>
 #include <tuple>
-#include "era.hpp"
+#include "./include/era.hpp"
 using namespace std;
 
 const time_t now = time(nullptr);
 const tm *lt = localtime(&now);
 const int startYear = 1615 - 1; //元年なので1を引く
-const int thisYear = 2000 + lt->tm_year;
-const int reiwa = (thisYear - 100) - 2019 + 1; //元号のスタートは0年ではないため1を足す
+const int thisYear = 1900 + lt->tm_year;
+const int reiwa = thisYear - 2019 + 1; //元号のスタートは0年ではないため1を足す
 
 const unordered_map<string, vector<int>> eras = {
   {"Genna", {1614, 10}}, {"Kanei", {1624, 21}}, {"Shouhou", {1645, 3}}, {"Keian", {1648, 4}}, {"Jouou", {1652, 4}}, {"Meireki", {1655, 3}}, {"Manji", {1658, 3}}, {"Kanbun", {1661, 12}},
