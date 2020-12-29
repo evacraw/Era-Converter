@@ -1,10 +1,13 @@
 #include <iostream>
-#include <vector>
+#include <cstdlib>
+#include <algorithm>
 #include "./include/era.hpp"
 using namespace std;
 
 // "Heisei 31"と入力されたら2019と返す (和暦 => 西暦)
-string JCtoAC(string eraName, unsigned int eraNum) {
+string JCtoAC(const char *eraNameChar, const char *eraNumChar) {
+  string eraName = string(eraNameChar);
+  int eraNum = atoi(eraNumChar);
   vector<int> adNumVec = eras.at(eraName);
   // 指定された年数が指定された元号に存在しない場合
   if(eraNum > adNumVec[1]) {
@@ -17,12 +20,13 @@ string JCtoAC(string eraName, unsigned int eraNum) {
 
 // 2019と入力されたら"Heisei 31"と文字列で返す (西暦 => 和暦)
 // 未来の年号対応と最後の年対応明日やる
-string ACtoJC(int inputNum) {
+string ACtoJC(char *inputChar) {
+  int inputNum = atoi(inputChar);
   // 今年より先の西暦を指定された場合、令和〇〇年として返す
   if (inputNum > thisYear){
     vector<int> reiwaStartYearVector = eras.at("Reiwa");
     int reiwaStartYear = reiwaStartYearVector[0];
-    int futureResultNum = inputNum - reiwaStartYear;
+    int futureResultNum = inputNum - reiwaStartYear + 1; // 今年が加味されないので+1
     string futureResult = "Reiwa" + to_string(futureResultNum);
     return futureResult;
   }

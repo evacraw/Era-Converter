@@ -6,7 +6,7 @@ C++に入門するための練習
 
 ```
 $ git clone git@github.com:kota-yata/Era-Converter.git
-$ g++ ./src/main.cpp ./src/names.cpp ./src/convert.cpp
+$ g++ -o era ./src/main.cpp ./src/names.cpp ./src/convert.cpp
 $ ./a.out
 ```
 
